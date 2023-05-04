@@ -1,3 +1,7 @@
+////////////////////////////////////////////////////////////
+// Original code by Grafana Polystat Panel https://github.com/grafana/grafana-polystat-panel/blob/main/src/components/composites/CompositeItem.tsx
+// Edited by serrrios
+////////////////////////////////////////////////////////////
 import React, { useState, useEffect } from 'react';
 import { IconName, Input, Select, Field, FieldSet, Switch, Card, IconButton, Cascader, TextArea, CascaderOption } from '@grafana/ui';
 import { DisplayModes, LogicalModes, RuleItemProps, RuleItemType } from './types';
@@ -97,22 +101,23 @@ export const RuleItem: React.FC<RuleItemProps> = (props: RuleItemProps) => {
       }
       setMetricHints(hints);
     }
-  }, [props.context.data]);
+  }, [props.context.data ]);
 //}, [props.context.data, props.context.options.globalOperator]);
 
   return (
     <Card heading="" key={`rule-card-${props.ID}`}>
       <Card.Meta>        
         <FieldSet>
-          <Field label="Rule Name" description="Name or Regular Expression" disabled={!rule.showRule}>
+          <Field label="Rule Name" disabled={!rule.showRule}>
             <Input
               value={rule.name}
               placeholder=""
+              disabled={!rule.showRule}
               onChange={(e) => setRule({ ...rule, name: e.currentTarget.value })}
             />
           </Field>
 
-          <Field label="Metric" style={{ minWidth: '175px' }} >
+          <Field label="Metric" disabled={!rule.showRule} style={{ minWidth: '175px' }} >
             <Cascader
               key={`cmi-index-${props.ID}`}
               initialValue={rule.seriesMatch}
@@ -126,6 +131,7 @@ export const RuleItem: React.FC<RuleItemProps> = (props: RuleItemProps) => {
             <Input
               value={rule.alias}
               placeholder=""
+              disabled={!rule.showRule}
               onChange={(e) => setRule({ ...rule, alias: e.currentTarget.value })}
             />
           </Field>
@@ -134,6 +140,7 @@ export const RuleItem: React.FC<RuleItemProps> = (props: RuleItemProps) => {
               value={rule.description}
               placeholder=""
               style={{ resize: 'both' }}
+              disabled={!rule.showRule}
               onChange={(e) => setRule({ ...rule, description: e.currentTarget.value })}
             />
           </Field> 

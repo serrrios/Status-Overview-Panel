@@ -139,6 +139,7 @@ export const RuleEditor: React.FC<Props> = ({ context, onChange }) => {
     setTracker([...tracker]);
   };
 
+
   const removeRule = (ruleIndex: number) => {
     // find the rule by the ruleIndex
     const allRules = [...tracker];
@@ -151,8 +152,10 @@ export const RuleEditor: React.FC<Props> = ({ context, onChange }) => {
     }
     allRules.splice(removeIndex, 1);
     // reorder
-    for (let i = 0; i < allRules.length; i++) {
+    //for (let i = 0; i < allRules.length; i++) {
+    for (let i = 0; i < allRules.length; i++) {  
       allRules[i].order = i;
+      allRules[i].rule.order = i;
     }
     setTracker([...allRules]);
   };
@@ -212,7 +215,7 @@ export const RuleEditor: React.FC<Props> = ({ context, onChange }) => {
     // add an opener also
     setIsOpen([...isOpen, true]);
   };
-
+  console.log("tracker: ",tracker);
   return (
     <>
 

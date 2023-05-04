@@ -11,7 +11,7 @@ export function getMetricHints(data: PanelData): MetricHint[] {
     const hints: MetricHint[] = [];
     for (const metric of data.series) {
       const hintsValue = DataFrameToMetrics(metric, 'last');
-      console.log(hintsValue);
+
       for (const hintValue of hintsValue) {
         hints.push({
           label: hintValue.name,

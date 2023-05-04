@@ -1,3 +1,7 @@
+////////////////////////////////////////////////////////////
+// Original code by Grafana Polystat Panel https://github.com/grafana/grafana-polystat-panel/blob/main/src/data/stats.ts
+// Edited by serrrios
+////////////////////////////////////////////////////////////
 import { FieldCalcs } from '@grafana/data';
 import { MetricsModel } from 'types';
 
