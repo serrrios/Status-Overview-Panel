@@ -10,6 +10,8 @@ export interface NewStatusOptions {
   globalOperator: string;
   ruleConfig: RuleConfig;
   dataLink: string;
+  globalDecimals: number;
+  globalUnitFormat: string;
 }
 
 export interface RuleConfig {

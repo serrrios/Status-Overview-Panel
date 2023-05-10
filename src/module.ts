@@ -38,6 +38,24 @@ export const plugin = new PanelPlugin<NewStatusOptions>(NewStatusPanel)
       },
 //      showIf: config => config.showSeriesCount,
     })
+    // .addUnitPicker({
+    //   name: 'Unit',
+    //   path: 'globalUnitFormat',
+    //   defaultValue: 'short',
+    //   category: ['Overall'],
+    //   description: 'Use this unit format when it is not specified in overrides or detected in data',
+    // })
+    // .addNumberInput({
+    //   name: 'Decimals',
+    //   path: 'globalDecimals',
+    //   description: 'Display specified number of decimals',
+    //   defaultValue: 2,
+    //   settings: {
+    //     min: 0,
+    //     integer: true,
+    //   },
+    //   category: ['Overall'],
+    // })
     .addRadio({
       path: 'modePanel',
       defaultValue: 'line',
