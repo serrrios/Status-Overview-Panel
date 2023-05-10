@@ -12,14 +12,14 @@ export const plugin = new PanelPlugin<NewStatusOptions>(NewStatusPanel)
     .addTextInput({
       path: 'panelName',
       name: 'Panel name',
-      category: ['Overall'],
+      category: ['General'],
       defaultValue: 'ololo panel',
     })
     .addRadio({
       path: 'statePanel',
       defaultValue: 'enable',
       name: 'State panel',
-      category: ['Overall'],
+      category: ['General'],
       settings: {
         options: [
           {
@@ -42,7 +42,7 @@ export const plugin = new PanelPlugin<NewStatusOptions>(NewStatusPanel)
     //   name: 'Unit',
     //   path: 'globalUnitFormat',
     //   defaultValue: 'short',
-    //   category: ['Overall'],
+    //   category: ['General'],
     //   description: 'Use this unit format when it is not specified in overrides or detected in data',
     // })
     // .addNumberInput({
@@ -54,13 +54,13 @@ export const plugin = new PanelPlugin<NewStatusOptions>(NewStatusPanel)
     //     min: 0,
     //     integer: true,
     //   },
-    //   category: ['Overall'],
+    //   category: ['General'],
     // })
     .addRadio({
       path: 'modePanel',
       defaultValue: 'line',
       name: 'Mode panel',
-      category: ['Overall'],
+      category: ['General'],
       settings: {
         options: [
           {
@@ -79,13 +79,13 @@ export const plugin = new PanelPlugin<NewStatusOptions>(NewStatusPanel)
       name: 'Blink',
       path: 'blink',
       defaultValue: true,
-      category: ['Overall'],
+      category: ['General'],
     })
 
     .addTextInput({
       path: 'dataLink',
       name: 'DataLink',
-      category: ['Overall'],
+      category: ['General'],
       description: 'Used on panel name if exist.\n\tExample: d/HQgMW5LVk/new-dashboard?orgId=1&refresh=30s&var-query0=$query0',
       defaultValue: '',
     })
@@ -94,7 +94,7 @@ export const plugin = new PanelPlugin<NewStatusOptions>(NewStatusPanel)
     //   name: 'Stat',
     //   path: 'globalOperator',
     //   description: 'Statistic to display',
-    //   category: ['Overall'],
+    //   category: ['General'],
     //   defaultValue: OperatorOptions[0].value,
     //   settings: {
     //     options: OperatorOptions,
