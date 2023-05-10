@@ -1,7 +1,7 @@
 # Changelog
 
-## [v0.0.1] (Unreleased)
+## [v0.0.3] (Unreleased)
 
-Released at 03-05-2023
+Released at 11-05-2023
 
 * Initial release.
