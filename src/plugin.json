@@ -14,8 +14,17 @@
       "small": "img/logo.svg",
       "large": "img/logo.svg"
     },
-    "links": [],
-    "screenshots": [],
+    "links": [{
+      "name": "Project site",
+      "url": "https://github.com/serrrios/New-Status-Panel"
+    }],
+    "screenshots": [{
+      "name": "Preview",
+      "path": "img/preview_transparent.png"
+    }, {
+      "name": "Blink",
+      "path": "img/blink.gif"
+    }],
     "version": "%VERSION%",
     "updated": "%TODAY%"
   },
