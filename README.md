@@ -62,5 +62,5 @@ Installing dev version of grafana plugin requires:
 1. to change `grafana.ini` config to allow loading unsigned plugins:
 ``` ini
 [plugins]
-allow_loading_unsigned_plugins = krasnov-newstatus-panel
+allow_loading_unsigned_plugins = serrrios-newstatus-panel
 ```
