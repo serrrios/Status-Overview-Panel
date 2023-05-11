@@ -59,7 +59,7 @@ Use FR, any ideas for development are welcome.
 # Dev release installation
 
 Installing dev version of grafana plugin requires:
-Change `grafana.ini` config to allow loading unsigned plugins:
+1. change `grafana.ini` config to allow loading unsigned plugins:
 ``` ini
 [plugins]
 allow_loading_unsigned_plugins = serrrios-newstatus-panel
