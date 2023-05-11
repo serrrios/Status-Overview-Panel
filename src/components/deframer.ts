@@ -1,3 +1,7 @@
+////////////////////////////////////////////////////////////
+// Original code by Grafana Polystat Panel https://github.com/grafana/grafana-polystat-panel/
+// Edited by serrrios
+////////////////////////////////////////////////////////////
 import { DataFrame, Field, FieldType, FieldConfig, ArrayVector, Labels } from '@grafana/data';
 import { cloneDeep as lodashCloneDeep } from 'lodash';
 

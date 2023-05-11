@@ -1,3 +1,7 @@
+////////////////////////////////////////////////////////////
+// Original code by Grafana Polystat Panel https://github.com/grafana/grafana-polystat-panel/blob/main/src/components/composites/
+// Edited by serrrios
+////////////////////////////////////////////////////////////
 import React, { useState } from 'react';
 import { StandardEditorProps } from '@grafana/data';
 import { Button, Collapse } from '@grafana/ui';
