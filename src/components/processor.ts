@@ -1,7 +1,8 @@
 ////////////////////////////////////////////////////////////
 // Original code by Grafana Polystat Panel https://github.com/grafana/grafana-polystat-panel/
 // Edited by serrrios
-////////////////////////////////////////////////////////////import { MetricsModel } from 'types';
+////////////////////////////////////////////////////////////
+import { MetricsModel } from 'types';
 import { InsertTime } from './deframer';
 import { GetValueByOperator } from './stats';
 import { PanelData, DataFrame, Field, FieldType, reduceField, getFieldDisplayName, getValueFormat, formattedValueToString } from '@grafana/data';
