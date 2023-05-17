@@ -1,7 +1,7 @@
 //import { SelectableValue } from '@grafana/data';
 import { RuleItemType } from './components/rules/types';
 
-export interface NewStatusOptions {
+export interface StatusOverviewOptions {
   panelName: string;
   text: string;
   blink: boolean;

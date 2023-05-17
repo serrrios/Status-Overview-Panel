@@ -1,7 +1,7 @@
 {
-  "name": "serrrios-newstatus-panel",
+  "name": "serrrios-statusoverview-panel",
   "version": "0.0.3",
-  "description": "New Status Panel for Grafana",
+  "description": "Status Overview Panel for Grafana",
   "scripts": {
     "build": "webpack -c ./.config/webpack/webpack.config.ts --env production",
     "dev": "webpack -w -c ./.config/webpack/webpack.config.ts --env development",

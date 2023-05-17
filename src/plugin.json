@@ -1,11 +1,11 @@
 {
   "$schema": "https://raw.githubusercontent.com/grafana/grafana/master/docs/sources/developers/plugins/plugin.schema.json",
   "type": "panel",
-  "name": "New Status Panel",
-  "id": "serrrios-newstatus-panel",
+  "name": "Status Overview Panel",
+  "id": "serrrios-statusoverview-panel",
   "info": {
     "keywords": ["panel"],
-    "description": "New Status Panel for Grafana",
+    "description": "Status Overview Panel for Grafana",
     "author": {
       "name": "Krasnov Sergei",
       "url": "https://github.com/serrrios"
@@ -16,7 +16,7 @@
     },
     "links": [{
       "name": "Project site",
-      "url": "https://github.com/serrrios/New-Status-Panel"
+      "url": "https://github.com/serrrios/Status-Overview-Panel"
     }],
     "screenshots": [{
       "name": "Preview",

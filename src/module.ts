@@ -1,11 +1,11 @@
 import { PanelPlugin  } from '@grafana/data';
-import { NewStatusOptions } from './types';
-import { NewStatusPanel } from './components/NewStatusPanel';
+import { StatusOverviewOptions } from './types';
+import { StatusOverviewPanel } from './components/StatusOverviewPanel';
 import { RuleEditor } from './components/rules/RuleEditor';
 import { RuleItemType } from './components/rules/types';
 import * as cfg from './const';
 
-export const plugin = new PanelPlugin<NewStatusOptions>(NewStatusPanel)
+export const plugin = new PanelPlugin<StatusOverviewOptions>(StatusOverviewPanel)
   .setPanelOptions((builder) => {
   return builder
 

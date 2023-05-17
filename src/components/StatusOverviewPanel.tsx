@@ -1,17 +1,17 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { PanelProps } from '@grafana/data';
-import { NewStatusOptions } from 'types';
+import { StatusOverviewOptions } from 'types';
 import { css, cx } from '@emotion/css';
 import { stylesFactory, Tooltip } from '@grafana/ui';
 import { findWorstStatus } from './findWorstStatus';
 import { displaySeriesData } from './displaySeriesData';
 import { getColorByState } from './getColorByState';
 import { getMetricHints } from './getMetricHints';
-interface Props extends PanelProps<NewStatusOptions> {}
+interface Props extends PanelProps<StatusOverviewOptions> {}
 
 
 
-export const NewStatusPanel: React.FC<Props> = ({ options, data, width, height, id, replaceVariables }) => {
+export const StatusOverviewPanel: React.FC<Props> = ({ options, data, width, height, id, replaceVariables }) => {
 
   const styles = getStyles();
   const [state, setState] = useState<string | null>(null);
