@@ -51,7 +51,7 @@ If you encounter any issues with specific data sources, please leave an issue.
 # TODO
 - Select and display value types for metrics
 - Audio notifications
-~~- Select metrics based on regular expressions~~ added in v0.0.4
+- ~~Select metrics based on regular expressions~~ added in v0.0.4
 - Additional plugin for global settings that affect all panels
 
 Use FR, any ideas for development are welcome.
