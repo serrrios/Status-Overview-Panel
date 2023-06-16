@@ -20,8 +20,8 @@ Audio notifications are also planned for the future.
 - Rules
     - Add, delete, clone, and move rules
     - Rule name
-    - Select the metric to apply the rules to
-    - Option to set an alias for metric display
+    - Select the metric or metrics by regular expression to which you want to apply the rules.
+    - Option to set an alias for displaying metrics, static or regular expression
     - Option to provide additional metric description for display in a tooltip
     - Display metric name
     - Display metric value
@@ -51,7 +51,7 @@ If you encounter any issues with specific data sources, please leave an issue.
 # TODO
 - Select and display value types for metrics
 - Audio notifications
-- Select metrics based on regular expressions
+~~- Select metrics based on regular expressions~~ added in v0.0.4
 - Additional plugin for global settings that affect all panels
 
 Use FR, any ideas for development are welcome.

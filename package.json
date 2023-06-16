@@ -1,6 +1,6 @@
 {
   "name": "serrrios-statusoverview-panel",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Status Overview Panel for Grafana",
   "scripts": {
     "build": "webpack -c ./.config/webpack/webpack.config.ts --env production",
@@ -63,6 +63,7 @@
     "@grafana/runtime": "9.3.8",
     "@grafana/ui": "9.3.8",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "use-sound": "^4.0.1"
   }
 }
