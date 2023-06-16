@@ -13,7 +13,7 @@ export const plugin = new PanelPlugin<StatusOverviewOptions>(StatusOverviewPanel
       path: 'panelName',
       name: 'Panel name',
       category: ['General'],
-      defaultValue: 'ololo panel',
+      defaultValue: 'Example name panel',
     })
     .addRadio({
       path: 'statePanel',

@@ -1,9 +1,7 @@
 
 import { SelectableValue } from '@grafana/data';
 
-
 export interface RuleMember {}
-
 
 export const DisplayModes: SelectableValue[] = [
   { value: 'number', label: 'Number threshold' },

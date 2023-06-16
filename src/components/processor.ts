@@ -29,7 +29,6 @@ export function ProcessDataFrames(
     const valueFields: Field[] = [];
   
     for (const aField of frame.fields) {
-      //console.log("aField: ", aField);
       if (aField.type === FieldType.number || aField.type === FieldType.string) {
         valueFields.push(aField);
       }

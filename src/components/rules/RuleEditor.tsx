@@ -219,7 +219,7 @@ export const RuleEditor: React.FC<Props> = ({ context, onChange }) => {
     // add an opener also
     setIsOpen([...isOpen, true]);
   };
-  console.log("tracker: ",tracker);
+
   return (
     <>
 

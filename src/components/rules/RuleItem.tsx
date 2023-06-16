@@ -5,8 +5,6 @@
 import React, { useState, useEffect } from 'react';
 import { IconName, Input, Select, Field, FieldSet, Switch, Card, IconButton, Cascader, TextArea, CascaderOption } from '@grafana/ui';
 import { DisplayModes, LogicalModes, RuleItemProps, RuleItemType } from './types';
-//import { MetricsModel } from 'types';
-//import { v4 as uuidv4 } from 'uuid';
 import { DataFrameToMetrics } from '../processor'
 import { SelectableValue } from '@grafana/data';
 //import { SelectableValue, FieldType } from '@grafana/data';
@@ -32,8 +30,6 @@ export const RuleItem: React.FC<RuleItemProps> = (props: RuleItemProps) => {
   };
   const [displayMode, setDisplayMode] = useState<SelectableValue<any>>(getDisplayMode(props.rule.displayMode));
   
-//  console.log(options);
-
   const getLogicalMode = (logicalMode: string) => {
     const keys = LogicalModes.keys();
     for (const aKey of keys) {
@@ -86,13 +82,11 @@ export const RuleItem: React.FC<RuleItemProps> = (props: RuleItemProps) => {
       let hints: CascaderOption[] = [];
       let metricHints = new Set<string>();
       for (const metric of props.context.data) {
-        //console.log("DataFrameToMetrics: ",DataFrameToMetrics(metric, props.context.options.globalOperator));
         let hintsValue = DataFrameToMetrics(metric, 'last');
         for (const hintValue of hintsValue) {
           metricHints.add(hintValue.name);          
         }  
       }
-      //console.log("metricHints: ",metricHints);
       for (const metricName of metricHints) {
         hints.push({
           label: metricName,
@@ -102,7 +96,6 @@ export const RuleItem: React.FC<RuleItemProps> = (props: RuleItemProps) => {
       setMetricHints(hints);
     }
   }, [props.context.data ]);
-//}, [props.context.data, props.context.options.globalOperator]);
 
   return (
     <Card heading="" key={`rule-card-${props.ID}`}>
@@ -122,7 +115,7 @@ export const RuleItem: React.FC<RuleItemProps> = (props: RuleItemProps) => {
               key={`cmi-index-${props.ID}`}
               initialValue={rule.seriesMatch}
               allowCustomValue
-              placeholder=""
+              placeholder="Сhoose a metric or enter a regular expression"
               options={metricHints}
               onSelect={(val: string) => setRule({ ...rule, seriesMatch: val })} 
             />
@@ -130,7 +123,7 @@ export const RuleItem: React.FC<RuleItemProps> = (props: RuleItemProps) => {
           <Field label="Alias metric name" description="Used as metric name if exists">
             <Input
               value={rule.alias}
-              placeholder=""
+              placeholder="Enter alias or a regular expression"
               disabled={!rule.showRule}
               onChange={(e) => setRule({ ...rule, alias: e.currentTarget.value })}
             />

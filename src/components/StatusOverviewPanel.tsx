@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { PanelProps } from '@grafana/data';
 import { StatusOverviewOptions } from 'types';
 import { css, cx } from '@emotion/css';
-import { stylesFactory, Tooltip } from '@grafana/ui';
+import { useStyles2, Tooltip } from '@grafana/ui';
 import { findWorstStatus } from './findWorstStatus';
 import { displaySeriesData } from './displaySeriesData';
 import { getColorByState } from './getColorByState';
@@ -13,14 +13,74 @@ interface Props extends PanelProps<StatusOverviewOptions> {}
 
 export const StatusOverviewPanel: React.FC<Props> = ({ options, data, width, height, id, replaceVariables }) => {
 
-  const styles = getStyles();
+  const useStyles = useStyles2(() => {
+    return {
+      wrapper: css`
+        position: relative;
+      `,
+      svg: css`
+        position: absolute;
+        top: 0;
+        left: 0;
+      `,
+      textBox: css`
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 10px;
+      `,
+      valueMap: css`
+        font-size: 0.85em;
+      `,    
+      bottom_section: css`
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center; 
+        height: 100%;
+      `,
+      top_section: css`
+        box-sizing: inherit;
+        vertical-align: middle;
+        height: 100%;
+      `,
+      status_name_row: css`
+        color: #080808;
+        overflow:hidden;
+      `,
+      h1: {
+        margin: '0px 0px 0.15em',
+        fontSize: '1.4rem',
+        'padding-top': '3px',
+        'letter-spacing': '-0.01893em',
+      },
+      a: {
+        color: '#080808',
+      },
+      blink: css`
+      animation-name: blinker;
+      animation-iteration-count: infinite;
+      animation-timing-function: cubic-bezier(1.0,2.0,0,1.0);
+      animation-duration: 1s;
+      animation-play-state: running;
+      -webkit-animation-name: blinker;
+      -webkit-animation-iteration-count: infinite;
+      -webkit-animation-play-state: running;
+      -webkit-animation-timing-function: cubic-bezier(1.0,2.0,0,1.0);
+      -webkit-animation-duration: 1s;
+      `,
+     
+    };
+  });
+  
+  
   const [state, setState] = useState<string | null>(null);
   const [blink, setBlink] = useState(false);
 
 
   const GlobalPanelState = useMemo(() => {
     return [];
-  }, []);
+  }, []); 
 
   useEffect(() => {
     setBlink(false);
@@ -78,12 +138,11 @@ export const StatusOverviewPanel: React.FC<Props> = ({ options, data, width, hei
   }, [id, state, GlobalPanelState]);
   
 
-  const blinkClass = blink && options.blink ? styles.blink : '';
+  const blinkClass = blink && options.blink ? useStyles.blink : '';
   const backgroundColor = getColorByState(state ?? '', options);
   const [displayData, setDisplayData] = useState<Array<{ line: string; tooltip: string; }>>([]);
-  //console.log(displayData);             
-                   
 
+  
   useEffect(() => {
     let result = displaySeriesData(getMetricHints(data), options.ruleConfig.rules);
     setDisplayData(result || []);
@@ -92,7 +151,7 @@ export const StatusOverviewPanel: React.FC<Props> = ({ options, data, width, hei
   return (
     <div
       className={cx(
-        styles.wrapper,
+        useStyles.wrapper,
         blinkClass,
         blinkKeyframes,
         css`
@@ -109,20 +168,20 @@ export const StatusOverviewPanel: React.FC<Props> = ({ options, data, width, hei
         `
       )}
     >
-      <div className={styles.top_section }>	
-        <div className={styles.bottom_section}>
-	        <div className={styles.status_name_row}>
-	          <h1 style={styles.h1}>
+      <div className={useStyles.top_section }>	
+        <div className={useStyles.bottom_section}>
+	        <div className={useStyles.status_name_row}>
+	          <h1 style={useStyles.h1}>
             {options.dataLink ? (
-              <a style={styles.a} href={replaceVariables(options.dataLink)}>
+              <a style={useStyles.a} href={replaceVariables(options.dataLink)}>
                 {replaceVariables(options.panelName)}
               </a>
             ) : (
-              <span style={styles.a}>{replaceVariables(options.panelName)}</span>
+              <span style={useStyles.a}>{replaceVariables(options.panelName)}</span>
             )}
 	          </h1>
             {options.statePanel === 'enable' ? (
-            <div className={styles.valueMap}>
+            <div className={useStyles.valueMap}>
               {options.modePanel && options.modePanel === 'in' ? (
                 displayData.map((item, index) => (
                   <span key={index}>
@@ -168,89 +227,29 @@ export const StatusOverviewPanel: React.FC<Props> = ({ options, data, width, hei
   );
 };
 
-const getStyles = stylesFactory(() => {
-  return {
-    wrapper: css`
-      position: relative;
-    `,
-    svg: css`
-      position: absolute;
-      top: 0;
-      left: 0;
-    `,
-    textBox: css`
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      padding: 10px;
-    `,
-    valueMap: css`
-      font-size: 0.85em;
-    `,    
-    bottom_section: css`
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-content: center; 
-      height: 100%;
-    `,
-    top_section: css`
-      box-sizing: inherit;
-      vertical-align: middle;
-      height: 100%;
-    `,
-    status_name_row: css`
-      color: #080808;
-      overflow:hidden;
-    `,
-    h1: {
-      margin: '0px 0px 0.15em',
-      fontSize: '1.4rem',
-      'padding-top': '3px',
-      'letter-spacing': '-0.01893em',
-    },
-    a: {
-      color: '#080808',
-    },
-    blink: css`
-    animation-name: blinker;
-    animation-iteration-count: infinite;
-    animation-timing-function: cubic-bezier(1.0,2.0,0,1.0);
-    animation-duration: 1s;
-    animation-play-state: running;
-    -webkit-animation-name: blinker;
-    -webkit-animation-iteration-count: infinite;
-    -webkit-animation-play-state: running;
-    -webkit-animation-timing-function: cubic-bezier(1.0,2.0,0,1.0);
-    -webkit-animation-duration: 1s;
-    `,
-   
-  };
-});
-
 const blinkKeyframes = css`
-  @keyframes blinker {
-    from {
-      opacity: 1.0;
+    @keyframes blinker {
+      from {
+        opacity: 1.0;
+      }
+      50% {
+        opacity: 0.5;
+      }
+      to {
+        opacity: 1.0;
+      }
     }
-    50% {
-      opacity: 0.5;
+  
+    @-webkit-keyframes blinker {
+      from {
+        opacity: 1.0;
+      }
+      50% {
+        opacity: 0.5;
+      }
+      to {
+        opacity: 1.0;
+      }
     }
-    to {
-      opacity: 1.0;
-    }
-  }
-
-  @-webkit-keyframes blinker {
-    from {
-      opacity: 1.0;
-    }
-    50% {
-      opacity: 0.5;
-    }
-    to {
-      opacity: 1.0;
-    }
-  }
-`;
+  `;
 
