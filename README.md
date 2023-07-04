@@ -55,12 +55,3 @@ If you encounter any issues with specific data sources, please leave an issue.
 - Additional plugin for global settings that affect all panels
 
 Use FR, any ideas for development are welcome.
-
-~~# Dev release installation
-
-Installing dev version of grafana plugin requires:
-1. change `grafana.ini` config to allow loading unsigned plugins:
-``` ini
-[plugins]
-allow_loading_unsigned_plugins = serrrios-statusoverview-panel
-```~~
